@@ -1,7 +1,13 @@
+import sun.reflect.Reflection;
+import sun.reflect.misc.ReflectUtil;
+
+import java.io.File;
+import java.io.FileFilter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Stack;
+import java.util.function.BinaryOperator;
 
 public class Solution589 {
     class Node {
@@ -35,6 +41,16 @@ public class Solution589 {
         }
     }
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+        /*不支持自动装箱 int -> Integer*/
+        BinaryOperator<Integer> bo = (Integer a, Integer b) -> {
+            return a + b;
+        };
+        Integer c = null;
+        System.out.println(c);
+        Solution589.class.newInstance();
+        Solution589 solution589 = (Solution589) ReflectUtil.newInstance(Solution589.class);
+        System.out.println(solution589);
     }
 }
