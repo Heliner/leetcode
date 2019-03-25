@@ -21,6 +21,7 @@ public class Solution931 {
             }
         System.out.println(Arrays.toString(dp[A.length - 1]));
         return Arrays.stream(dp[A.length - 1]).min().orElse(0);
+
     }
 
     public static void main(String[] args) {
