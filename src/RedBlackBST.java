@@ -26,7 +26,6 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return h.color == RED;
     }
 
-    ;
 
     private Node rotateLeft(Node h) {
         Node x = h.right;
