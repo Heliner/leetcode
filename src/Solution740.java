@@ -1,40 +1,25 @@
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 public class Solution740 {
     public int deleteAndEarn(int[] nums) {
-        int len = 0;
-        len = nums.length;
-        if (0 == len)
-            return 0;
-        Arrays.sort(nums);
-        int[][] dp = new int[len][len];
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                int[] tRes = allNum(nums, j);
-                int curVals = tRes[0];
-                int val1 = (j - 2 >= 0 ? dp[i - 1][j - 2] : 0) + (j + 2 < i ? dp[i - 1][j + 2] : 0) + curVals;
-                int val2 = (j - 1 >= 0 ? dp[i - 1][j - 1] : 0) + (j + 1 < i ? dp[i - 1][j + 1] : 0);
-                dp[i][j] = Math.max(val1, val2);
-                j = tRes[1];
+            int len = 0;
+            if ((len = nums.length) == 0)
+                return 0;
+            if (len == 1)
+                return nums[0];
+            Arrays.sort(nums);
+            LinkedHashMap<Integer,Integer> map = new LinkedHashMap<>();
+            for(int n : nums){
+                map.put(n,map.getOrDefault(n,0)+1);
             }
+            Set<Integer> keys = map.keySet();
+            for(Integer key:keys){
+                map.put(key,Math.max(map.getOrDefault(key-1,0),map.getOrDefault(key-2,0)+map.get(key)*key));
+            }
+            return map.get(nums[len-1]);
         }
-        for (int[] d : dp)
-            System.out.println(Arrays.toString(d));
-        return dp[len - 1][len - 1];
-    }
-
-    private int[] allNum(int[] nums, int j) {
-        int n = nums[j];
-        int[] res = new int[2];
-        int i;
-        for (i = j; i < nums.length; i++) {
-            if (n != nums[i])
-                break;
-            res[0] += nums[i];
-        }
-        res[1] = i;
-        return res;
-    }
 
     public static void main(String[] args) {
         Solution740 solution670 = new Solution740();

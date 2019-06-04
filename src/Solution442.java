@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。
+ * 给定一个整数数组 Solution1004，其中1 ≤ Solution1004[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。
  * <p>
  * 找到所有出现两次的元素。
  * <p>
