@@ -1,5 +1,3 @@
-package today;
-
 public class Solution903 {
 
     static class Solution {

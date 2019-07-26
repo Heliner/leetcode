@@ -1,4 +1,5 @@
-import java.util.Arrays;
+import today.TreeNode;
+
 import java.util.HashMap;
 
 /**
@@ -47,14 +48,14 @@ public class Solution337 {
     }
 
     /*   *//*后序遍历*//*
-    public int rob(Solution5017.TreeNode root) {
+    public int rob(Solution5017.today.TreeNode root) {
         if (root == null)
             return 0;
         postOrder(root);
         return root.val;
     }
 
-    private void postOrder(Solution5017.TreeNode root) {
+    private void postOrder(Solution5017.today.TreeNode root) {
         if (root == null)
             return;
         *//*修改左侧的值*//*

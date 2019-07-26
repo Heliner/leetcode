@@ -1,5 +1,3 @@
-package today;
-
 public class Solution875 {
     class Solution {
         public int minEatingSpeed(int[] piles, int H) {
