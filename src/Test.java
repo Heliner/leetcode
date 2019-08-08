@@ -1,8 +1,20 @@
+import java.util.Arrays;
+
 public class Test {
     public static void main(String[] args) {
 
         System.out.println(new B().getValue());
-        System.out.println("is:"+100+5);
+        System.out.println("is:" + 100 + 5);
+
+        int[] a = new int[]{1};
+        int[] b = new int[]{2};
+        int[] t = null;
+        {
+            t = a;
+            a = b;
+            b = t;
+        }
+        System.out.println(Arrays.toString(a) + ":" + Arrays.toString(b));
     }
 
     static class A {

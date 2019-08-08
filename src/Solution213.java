@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class Solution213 {
     /**
      * 动态规划问题
-     * 递归方程rob(i)=max(helper(i-1),ron(i-2)+nums[i]);i>=2
+     * 递归方程rob(i)=max(genertaTree(i-1),ron(i-2)+nums[i]);i>=2
      * bp问题中递归方程bp(i)=max(bp(i-1),bp(i-1))?
      *
      * @param nums [start,end]
