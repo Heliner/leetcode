@@ -8,28 +8,23 @@ public class Solution1110 {
         boolean[] toDel = new boolean[1010];
         List<TreeNode> res = new ArrayList<>();
 
-        void dfs(TreeNode cur, boolean added) {
-            if (cur == null) return;
-            if (toDel[cur.val]) {
-                dfs(cur.left, true);
-                dfs(cur.right, true);
-                return;
-            } else {
-                if (added) {
-                    res.add(cur);
+        boolean dfs(TreeNode cur, boolean added) {
+            if(cur == null)
+                return false;
+            boolean re = false;
+            if(toDel[cur.val]){
+                dfs(cur.left,true);
+                dfs(cur.right,true);
+                re = true;
+                return re;
+            }else {
+                res.add(cur);
+                if (dfs(cur.left, false)) {
+                    cur.left = null;
                 }
-                if (cur.left != null) {
-                    dfs(cur.left, false);
-                    if (toDel[cur.left.val]) {
-                        cur.left = null;
-                    }
-                }
-                if (cur.right != null) {
-                    dfs(cur.right, false);
-                    if (toDel[cur.right.val]) {
-                        cur.right = null;
-                    }
-                }
+                if (dfs(cur.right, false))
+                    cur.right = null;
+                return false;
             }
         }
 
